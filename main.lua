@@ -31,7 +31,7 @@ love.window.setTitle('Windfield ')
 Camera = require "lib/camera"
    wf = require('lib/windfield')
   world = wf.newWorld(0,0,true)
-local background = love.graphics.newImage('assets/gfx/background.png');
+local bg = love.graphics.newImage('assets/gfx/bg.png');
 function love.load()
 
     require("player")
@@ -76,6 +76,7 @@ end
 
 function love.draw()
   cam:attach()
+  love.graphics.draw(bg,-416,-674)
   a=400 player:draw()
   ax1,ay1=player.collider:getPosition()
    love.graphics.print("player.x = "..ax1, a ,a - 50,0,4,4)
@@ -83,6 +84,7 @@ function love.draw()
    love.graphics.print("cam.x = "..cam.x, a,a - 200,0,4,4)
    love.graphics.print("cam.y = "..cam.y, a,a - 250,0,4,4)
    world:draw()
+
   
 
 cam:detach()
